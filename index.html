@@ -13,7 +13,7 @@
     #header {
       line-height: 10px;
       text-align: center;
-      color: white;
+      color: lightslategray;
     }
     #header h1 {
       font-size: 75px;
@@ -62,14 +62,13 @@
       text-align: center;
     }
     #info p {
-      color: black;
+      color: lightslategray;
       background-color: white;
       padding: 4px;
       border-radius: 10px;
       font-size: 15px;
     }
     #main {
-      background-color: darkgray;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -99,7 +98,7 @@
       #input input {
       padding: 0;
       border: none;
-      width: 35%;
+      width: 55%;
       background-color: white;
       border-radius: 10px;
       }
@@ -127,7 +126,6 @@
       text-align: center;
       }
       #main {
-      background-color: darkgray;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -157,7 +155,7 @@
   </div>
 
     <div id="info">
-      <p></p>
+      <p id="item"></p>
     </div>
 
     <div id="input">
@@ -170,11 +168,31 @@
     </div>
 
   <script>
-    const base = document.querySelector("#info p")
+    let base = document.querySelector("#info p")
     let text = "ketikan berapa,jumlah block,yang ingin kamu buat";
     let split = text.split(",");
     let i = 0;
     
+    let color = ['white', 'lightred', 'black', 'lightgrenn', 'lightyellow']
+    let item = document.getElementById('item')
+    let x = 0;
+
+    let header = document.getElementById('header')
+    
+    setInterval (() => {
+      function changeColor() {
+        item.style.backgroundColor = color[x];
+        header.style.backgroundColor = color[x]
+        header.style.padding = '10px'
+        header.style.borderRadius = '10px'
+        x++
+
+        if (x >= color.length) {
+          x = 0;
+        }
+      }
+      changeColor()
+    }, 1000)
     setInterval(() => {
       function writeText() {
         base.innerHTML = split[i]
@@ -194,9 +212,9 @@
       element.style.margin = '4px'
 
       if (i % 2 == 0) {
-        element.style.backgroundColor  = 'grey'
+        element.style.backgroundColor  = 'yellow'
       } else {
-        element.style.backgroundColor = 'yellow'
+        element.style.backgroundColor = 'slateblue'
       }
     }
 
@@ -205,7 +223,7 @@
     const button = document.querySelector('button');
     const input = document.querySelector('input');
     button.addEventListener('click', e => {
-        if (input.value <= 101) {
+        if (input.value <= 1000) {
           ele.innerHTML = ''
 
           for (let i = 0; i <= input.value; i++) {
@@ -215,9 +233,9 @@
             item.style.margin = '4px'
 
             if (i % 2 == 0) {
-            item.style.backgroundColor  = 'green'
+            item.style.backgroundColor  = 'yellow'
             } else {
-            item.style.backgroundColor = 'yellow'
+            item.style.backgroundColor = 'white'
             }
           }
         }
