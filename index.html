@@ -144,6 +144,10 @@
         font-size: 20px;
         color: black;
       }
+      #infos {
+        font-size: 15px;
+        color: wheat;
+      }
     }
   </style>
 </head>
@@ -156,6 +160,7 @@
 
     <div id="info">
       <p id="item"></p>
+      <span id="infos"><p>ada harta karun di salah satu angka coba klik satu satu</p></span>
     </div>
 
     <div id="input">
@@ -204,12 +209,26 @@
       }
       writeText()
     }, 1000)
-    const ele = document.querySelector("#main")
+
+
+
     for (let i = 0; i < 101; i++) {
+      const ele = document.querySelector("#main")
       const element = document.createElement('div');
       element.textContent = i
       ele.appendChild(element);
-      element.style.margin = '4px'
+      element.style.margin = '4px';
+
+
+      element.addEventListener('click', e => {
+       let confirm = window.confirm("kamu yakin?")
+       
+        if (confirm) {
+          element.innerHTML = ''
+        } else {
+          element.innerHTML = i
+        }
+      })
 
       if (i % 2 == 0) {
         element.style.backgroundColor  = 'yellow'
@@ -241,6 +260,12 @@
         }
       })
 
+      // disapper when touch
+      const inputs = document.querySelector('input');
+      inputs.addEventListener('blur', e => {
+        const infos = document.getElementById('infos');
+        infos.innerHTML = "klik angka coba wkwk"
+      })
   </script>
 </body>
 </html>
