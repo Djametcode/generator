@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Patrick+Hand&display=swap');
+    * {
+      font-family: 'Patrick Hand', cursive;
+    }
+    #header {
+      line-height: 10px;
+      text-align: center;
+      color: white;
+    }
+    #header h1 {
+      font-size: 75px;
+    }
+    #header h3 {
+      font-size: 15px;
+    }
+    #input {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+    #input input:focus {
+      outline: none;
+      border: none;
+      text-align: center;
+    }
+    #input input {
+      border: none;
+      padding: 25px;
+      width: 35%;
+      background-color: white;
+      border-radius: 10px;
+      text-align: center;
+    }
+    #input ::placeholder {
+      color: lightgrey;
+      font-size: 25px;
+    }
+    #input button {
+      padding: 10px;
+      background-color: green;
+      color: lightgrey;
+      border: none;
+      font-size: 25px;
+      border-radius: 10px;
+    }
+    #info {
+      font-size: 25px;
+      border-radius: 5px;
+      padding: 3px;
+      margin: auto;
+      margin-left: 35%;
+      margin-right: 35%;
+      text-align: center;
+    }
+    #info p {
+      color: black;
+      background-color: white;
+      padding: 4px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    #main {
+      background-color: darkgray;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 50px 15%;
+      justify-content: center;
+    }
+    #main div {
+      width: 70px;
+      height: 40px;
+      border: none;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-size: 20px;
+      color: black;
+    }
+    body {
+      background-color: lightslategray;
+    }
+
+    @media screen and (max-width : 412px) {
+      #header h1 {
+        font-size: 3em;
+      }
+      #input input {
+      padding: 0;
+      border: none;
+      width: 35%;
+      background-color: white;
+      border-radius: 10px;
+      }
+      #input ::placeholder {
+      font-size: 15px;
+      padding-left: 5px;
+      text-align: center;
+      
+      }
+      #input button {
+      padding: 5px;
+      background-color: green;
+      color: lightgrey;
+      border: none;
+      font-size: 15px;
+      border-radius: 10px;
+      }
+      #info {
+      font-size: 25px;
+      border-radius: 5px;
+      padding: 3px;
+      margin: auto;
+      margin-left: 30%;
+      margin-right: 30%;
+      text-align: center;
+      }
+      #main {
+      background-color: darkgray;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 15px 5%;
+      justify-content: center;
+      }
+      #main div {
+        width: 20px;
+        height: 20px;
+        border: none;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+        color: black;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>Number Generator</h1>
+    <h3>30 Days Of Javascript Days 3</h3>
+    <h3>Author : Tofik Hidayat</h3>
+  </div>
+
+    <div id="info">
+      <p></p>
+    </div>
+
+    <div id="input">
+      <input type="number" placeholder="input Number">
+      <button>Generate</button>
+    </div>
+
+    <div id="main">
+
+    </div>
+
+  <script>
+    const base = document.querySelector("#info p")
+    let text = "ketikan berapa,jumlah block,yang ingin kamu buat";
+    let split = text.split(",");
+    let i = 0;
+    
+    setInterval(() => {
+      function writeText() {
+        base.innerHTML = split[i]
+        i++
+
+        if (i >= split.length) {
+          i = 0
+        }
+      }
+      writeText()
+    }, 1000)
+    const ele = document.querySelector("#main")
+    for (let i = 0; i < 101; i++) {
+      const element = document.createElement('div');
+      element.textContent = i
+      ele.appendChild(element);
+      element.style.margin = '4px'
+
+      if (i % 2 == 0) {
+        element.style.backgroundColor  = 'grey'
+      } else {
+        element.style.backgroundColor = 'yellow'
+      }
+    }
+
+    //numb generator 
+
+    const button = document.querySelector('button');
+    const input = document.querySelector('input');
+    button.addEventListener('click', e => {
+        if (input.value <= 101) {
+          ele.innerHTML = ''
+
+          for (let i = 0; i <= input.value; i++) {
+            const item = document.createElement('div');
+            item.textContent = i;
+            ele.appendChild(item)
+            item.style.margin = '4px'
+
+            if (i % 2 == 0) {
+            item.style.backgroundColor  = 'green'
+            } else {
+            item.style.backgroundColor = 'yellow'
+            }
+          }
+        }
+      })
+
+  </script>
+</body>
+</html>

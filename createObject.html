@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldCOuntries</title>
+    <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Patrick+Hand&display=swap'); 
+    * {
+        font-family: 'Patrick Hand', cursive;
+    }
+    #main {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 100px;
+        width: 100%;
+        padding: 5px;
+    }
+    #wrapper-tabel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 35%;
+        margin-right: 35%;
+        padding: 5px;
+
+    }
+    .items {
+        width: 75px;
+        height: 75px;
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        const body = document.body;
+        for (let i = 0; i < 3; i++) {
+            const ele = document.createElement('div');
+            body.appendChild(ele)
+        }
+
+        const item = document.querySelectorAll('div');
+        item[0].setAttribute('id', 'header');
+        item[1].setAttribute('id', 'info-web')
+        item[2].setAttribute('id', 'main');
+
+        const header = document.getElementById('header');
+        header.textContent = 'World Countries List';
+        header.style.fontSize = '50px';
+        header.style.textAlign = 'center';
+
+        const info = document.getElementById('info-web');
+        for (let i = 0; i < 3; i++) {
+            const ele = document.createElement('p');
+            info.appendChild(ele)
+        }
+        info.style.textAlign = 'center';
+        info.style.lineHeight = '8px'
+
+        const items = document.querySelectorAll('p');
+        items[0].textContent = 'Total Number Of Countries : 193';
+        items[1].textContent = '30 Days Of Javascript Day - 2';
+        items[2].textContent = 'Author : Tofik Hidayat Full Javascript';
+
+        const mains = document.getElementById('main');
+        const wrap = document.createElement('div');
+        wrap.setAttribute('id', 'wrapper-tabel')
+        mains.appendChild(wrap)
+        for (let i = 0; i < 193; i++) {
+            const item = document.getElementById('wrapper-tabel')
+            const div = document.createElement('div');
+            div.className = 'items';
+            const text = div.textContent = i;
+            item.appendChild(div)
+
+        }
+    </script>
+</body>
+</html>
