@@ -210,10 +210,10 @@
       writeText()
     }, 1000)
 
-
+    const ele = document.querySelector("#main")
 
     for (let i = 0; i < 101; i++) {
-      const ele = document.querySelector("#main")
+     
       const element = document.createElement('div');
       element.textContent = i
       ele.appendChild(element);
@@ -244,7 +244,6 @@
     button.addEventListener('click', e => {
         if (input.value <= 1000) {
           ele.innerHTML = ''
-
           for (let i = 0; i <= input.value; i++) {
             const item = document.createElement('div');
             item.textContent = i;
